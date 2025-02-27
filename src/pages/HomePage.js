@@ -41,10 +41,12 @@ const HomePage = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
- 
-
   const handleLogout = () => {
     navigate("/"); // Redirect to login page
+  };
+
+  const handlePredictClick = () => {
+    navigate("/predict"); // Redirect to Predict.js
   };
 
   const filteredEvents = events.filter(event =>
@@ -55,9 +57,10 @@ const HomePage = () => {
     <div className="homepage">
       <div className="header">
         <h1>Seat Secure</h1>
-        
+        <button onClick={handlePredictClick} className="profile-btn1">My preference</button>
         <div className="profile-container">
           <button onClick={handleProfileClick} className="profile-btn">My Profile</button>
+          
           {dropdownOpen && (
             <div className="dropdown-menu">
               
@@ -69,13 +72,12 @@ const HomePage = () => {
       <h1>Welcome, {user?.username}!</h1>
       <h2>Upcoming Events in {user?.city}</h2>
       <div className="search-bar">
-      <input
-        type="text"
-        placeholder="Search events..."
-        
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
+        <input
+          type="text"
+          placeholder="Search events..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
       <div className="event-cards">
         {filteredEvents.length > 0 ? (

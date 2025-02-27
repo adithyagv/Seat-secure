@@ -66,7 +66,7 @@ const EventDetails = () => {
       <h2 style={{color:"white"}}>{event.title}</h2>
       <div className="event-image-det">
       <img style={{ width: "20%", height: "auto",  }}
-                  src={event.image} // Use the image URL directly
+                  src={event.image} 
                   alt={event.title}
                   
                 />

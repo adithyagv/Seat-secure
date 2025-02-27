@@ -140,3 +140,20 @@
 .book-ticket-btn:hover {
   background-color: rgb(244, 189, 9);;
 }
+.profile-btn1{
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: rgb(255, 132, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: 25px ;
+  cursor: pointer;
+  position: relative;
+  left: 400px;
+  
+}
+.profile-btn1:hover{
+  scale: 1.05;
+}

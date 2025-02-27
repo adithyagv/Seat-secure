@@ -19,8 +19,6 @@ const LoginPage = () => {
   
       if (response.status === 200) {
         const { user, events } = response.data;
-  
-        
         navigate("/home", { state: { user, events } });
       }
     } catch (error) {

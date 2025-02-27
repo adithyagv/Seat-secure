@@ -32,22 +32,44 @@ const AdminDashboard = () => {
   };
 
   const handleAddEvent = async () => {
-    if (!newEvent.title || !newEvent.type || !newEvent.date || !newEvent.time || !newEvent.venue || !newEvent.description || !newEvent.price || !newEvent.city || !newEvent.image) {
+    // Trim all values to prevent empty space issues
+    const trimmedEvent = {
+      title: newEvent.title.trim(),
+      type: newEvent.type.trim(),
+      date: newEvent.date.trim(),
+      time: newEvent.time.trim(),
+      venue: newEvent.venue.trim(),
+      description: newEvent.description.trim(),
+      price: newEvent.price.toString().trim(), // Convert number to string and trim
+      city: newEvent.city.trim(),
+      image: newEvent.image.trim(),
+    };
+  
+    console.log("Event Data Before Submission:", trimmedEvent); // Debugging line
+  
+    // Validate all fields
+    if (Object.values(trimmedEvent).some(value => value === "")) {
       alert("Please fill in all fields including the image URL.");
       return;
     }
-
+  
     try {
+      const eventToSend = {
+        ...trimmedEvent,
+        price: Number(trimmedEvent.price), // Ensure price is a number
+      };
+  
       const response = await fetch("http://localhost:5000/api/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newEvent),
+        body: JSON.stringify(eventToSend),
       });
-
+  
       const data = await response.json();
-
+      console.log("Server Response:", data); // Debugging line
+  
       if (response.ok) {
         alert("Event added successfully!");
         setNewEvent({
@@ -58,7 +80,7 @@ const AdminDashboard = () => {
           venue: "",
           description: "",
           price: "",
-          city: "Chennai",
+          city: "Chennai", // Ensure city has a default
           image: "",
         });
       } else {
@@ -66,9 +88,10 @@ const AdminDashboard = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to add event");
+      alert("Failed to add event. Check console for details.");
     }
   };
+  
    const handleProfileClick = () => {
     setDropdownOpen(!dropdownOpen);
   };

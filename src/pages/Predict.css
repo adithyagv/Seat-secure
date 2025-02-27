@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: rgb(255, 132, 0);
+    padding: 10px 20px;
+    position: relative;
+    bottom: 20px;
+    right: 20px;
+    width: 100%;
+    border-radius: 0px 0px 20px 0px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  }
+  .predict-page {
+    padding: 20px;
+    font-family: "Quicksand", sans-serif;
+  }
+  .p-6 {
+    margin-top: 35px;
+    display: grid;
+    grid-auto-flow: column; /* Forces items to align in a single row */
+    grid-auto-columns: minmax(250px, auto); /* Adjusts column width */
+    gap: 20px;
+    overflow-x: auto; /* Allows scrolling if items overflow */
+    white-space: nowrap;
+  }
+  
+  
+  
+  .event-card1 {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    height: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
