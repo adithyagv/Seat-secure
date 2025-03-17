@@ -33,9 +33,9 @@ const AdminLogin = () => {
      <div className="col-md-12">
        <div className="card">
          <div className="card-body">
-           <h4 className="card-title">Welcome to Seat Secure</h4>
+           <h4 className="card-title">Welcome to SeatPal</h4>
            <p className="card-text">
-             Seat Secure is a web application that allows users to book seats for events.
+             SeatPal is a web application that allows users to book seats for events.
            </p>
            <p className="card-text">
              Please login to continue.
