@@ -85,7 +85,7 @@ const Payment = () => {
   return (
     <div className="payment-body">
        <div className="header-det">
-        <h1 onClick={() => navigate(-1)}>Seat Secure</h1>
+        <h1 onClick={() => navigate(-1)}>SeatPal</h1>
         <div className="profile-container">
           <button onClick={handleProfileClick} className="profile-btn">My Profile</button>
           {dropdownOpen && (
