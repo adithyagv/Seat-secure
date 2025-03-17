@@ -61,7 +61,7 @@ const Predict = () => {
   return (
     <div className="predict-page">
       <div className="header">
-        <h1>Seat Secure</h1>
+        <h1>SeatPal</h1>
         <button onClick={() => navigate("/predict")} className="profile-btn1">
           My preference
         </button>
