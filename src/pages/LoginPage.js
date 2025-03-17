@@ -54,7 +54,7 @@ const LoginPage = () => {
         <div className="col-md-12">
           <div className="card">
             <div className="card-body">
-              <h4 className="card-title">Welcome to Seatpal</h4>
+              <h4 className="card-title">Welcome to SeatPal</h4>
               <p className="card-text">
                 Searching for events? You're in the right place.
                 Your gateway to unforgettable experiences.
