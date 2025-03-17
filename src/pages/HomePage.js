@@ -56,7 +56,7 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <div className="header">
-        <h1>Seat Secure</h1>
+        <h1>SeatPal</h1>
         <button onClick={handlePredictClick} className="profile-btn1">My preference</button>
         <div className="profile-container">
           <button onClick={handleProfileClick} className="profile-btn">My Profile</button>
