@@ -61,7 +61,7 @@ const UserRegistration = () => {
   return (
     <div className="reg-container">
       <div className="left-half-reg">
-        <h1>Seat Secure</h1>
+        <h1>SeatPal</h1>
       </div>
 <div className="right-half-reg">
         <div className="form-container">
