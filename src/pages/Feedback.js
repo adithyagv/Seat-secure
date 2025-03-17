@@ -65,7 +65,7 @@ const Feedback = () => {
   return (
     <div className="feedback">
        <div className="header-det">
-        <h1 onClick={() => home()}>Seat Secure</h1>
+        <h1 onClick={() => home()}>SeatPal</h1>
         <div className="profile-container">
           <button onClick={handleProfileClick} className="profile-btn">My Profile</button>
           {dropdownOpen && (
