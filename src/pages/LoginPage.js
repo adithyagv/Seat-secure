@@ -28,7 +28,10 @@ const LoginPage = () => {
       );
     }
   };
-
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
+  };
+  
   const handleUserRegistration = () => {
     navigate("/register");
   };
@@ -42,7 +45,7 @@ const LoginPage = () => {
        <header>
       <nav className="logo">
         <h1 className="navbar-brand" href="/">
-          Seat Secure
+          SeatPal
         </h1>
       </nav>
     </header>
@@ -108,7 +111,15 @@ const LoginPage = () => {
   <p className="link-text" id="admin" onClick={handleAdminLogin}>
     Admin Login
   </p>
+  <p
+  className="link-text"
+  onClick={handleForgotPassword}
+>
+  Forgot Password?
+</p>
+
 </div>
+
 
     </div>
     </div>

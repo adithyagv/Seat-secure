@@ -21,7 +21,7 @@ const AdminLogin = () => {
     <header>
    <nav className="logo-admin">
      <h1 className="navbar-brand" href="/">
-       Seat Secure
+       SeatPal
      </h1>
    </nav>
  </header>

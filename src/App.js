@@ -8,7 +8,8 @@ import Payment from "./pages/Payment";
 import Feedback from "./pages/Feedback";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-import Predict from "./pages/Predict"; // ✅ Import the Predict component
+import Predict from "./pages/Predict"; 
+import ForgotPassword from "./pages/forgot-password";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
       <Route path="/admin-login" element={<AdminLogin />} />
       <Route path="/admin-dashboard" element={<AdminDashboard />} />
       <Route path="/predict" element={<Predict />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+
     </Routes>
   );
 }
