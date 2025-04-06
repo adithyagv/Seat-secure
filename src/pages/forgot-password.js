@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     setError("");
 
     try {
-      const response = await axios.post("http://localhost:5000/api/forgot-password", { email });
+      const response = await axios.post("https://seat-secure-backend.onrender.com/forgot-password", { email });
 
       if (response.status === 200) {
         setMessage("Password reset link has been sent to your email.");
