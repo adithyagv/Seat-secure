@@ -30,7 +30,7 @@ const EventDetails = () => {
 
   const fetchEventDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/event/${id}`);
+      const response = await fetch(`https://seat-secure-backend.onrender.com/event/${id}`);
       if (!response.ok) throw new Error("Failed to fetch event details");
 
       const data = await response.json();
@@ -47,7 +47,7 @@ const EventDetails = () => {
   if (loading) return <p>Loading event details...</p>;
   if (error) return <p>{error}</p>;
   if (!event) return <p>Event not found.</p>;
-  const imageUrl = event.image ? `http://localhost:5000/uploads/${encodeURIComponent(event.image)}` : null;
+  const imageUrl = event.image ? `https://seat-secure-backend.onrender.com/uploads/${encodeURIComponent(event.image)}` : null;
 
   return (
     <div className="event-details" style={{backgroundImage: `url(${event.image})`}}>

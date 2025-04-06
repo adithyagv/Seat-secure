@@ -21,7 +21,7 @@ const Feedback = () => {
 
   const fetchFeedbacks = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/feedback/${id}`);
+      const response = await axios.get(`https://seat-secure-backend.onrender.com/feedback/${id}`);
       setFeedbackList(response.data.feedbacks);
     } catch (error) {
       console.error("Error fetching feedbacks:", error);
@@ -32,7 +32,7 @@ const Feedback = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/feedback", {
+      const response = await axios.post("https://seat-secure-backend.onrender.com/feedback", {
         eventId: id,
         rating,
         comment,

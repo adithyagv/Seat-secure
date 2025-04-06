@@ -59,7 +59,7 @@ const AdminDashboard = () => {
         price: Number(trimmedEvent.price), // Ensure price is a number
       };
   
-      const response = await fetch("http://localhost:5000/api/events", {
+      const response = await fetch("https://seat-secure-backend.onrender.com/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

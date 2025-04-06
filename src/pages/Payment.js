@@ -19,7 +19,7 @@ const Payment = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/event/${id}`);
+        const response = await fetch(`https://seat-secure-backend.onrender.com/event/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch event details");
         }

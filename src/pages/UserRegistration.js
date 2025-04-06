@@ -37,7 +37,7 @@ const UserRegistration = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/register", formData);
+      const response = await axios.post("https://seat-secure-backend.onrender.com/register", formData);
 
       if (response.status === 201) {
         setMessage("Registration successful!");
