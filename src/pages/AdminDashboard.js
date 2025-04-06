@@ -80,7 +80,7 @@ const AdminDashboard = () => {
           venue: "",
           description: "",
           price: "",
-          city: "Chennai", // Ensure city has a default
+          city: "", // Ensure city has a default
           image: "",
         });
       } else {
