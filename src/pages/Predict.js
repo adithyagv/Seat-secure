@@ -20,7 +20,7 @@ const Predict = () => {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5001/api/v1/predict",
+        "https://seat-secure-ai-model.onrender.com/api/v1/predict",
         {
           price: 50,
           day_of_week: 5,
