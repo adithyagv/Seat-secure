@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import './EventDetails.css';
+import API_BASE_URL from "../config";
 const EventDetails = () => {
   const location = useLocation();
   const { id } = useParams();
@@ -30,7 +31,7 @@ const EventDetails = () => {
 
   const fetchEventDetails = async () => {
     try {
-      const response = await fetch(`https://seat-secure-backend.onrender.com/event/${id}`);
+      const response = await fetch(`${API_BASE_URL}/event/${id}`);
       if (!response.ok) throw new Error("Failed to fetch event details");
 
       const data = await response.json();

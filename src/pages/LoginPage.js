@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './LoginPage.css';
-
+import API_BASE_URL from "../config";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ const LoginPage = () => {
     e.preventDefault();
   
     try {
-      const response = await axios.post("https://seat-secure-backend.onrender.com/login", {
+      const response = await axios.post(`${API_BASE_URL}/login`, {
         email,
         password,
       });

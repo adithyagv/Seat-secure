@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./forgot-password.css"; 
+import API_BASE_URL from "../config";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ const ForgotPassword = () => {
     setError("");
 
     try {
-      const response = await axios.post("https://seat-secure-backend.onrender.com/forgot-password", { email });
+      const response = await axios.post(`${API_BASE_URL}/forgot-password`, { email });
 
       if (response.status === 200) {
         setMessage("Password reset link has been sent to your email.");

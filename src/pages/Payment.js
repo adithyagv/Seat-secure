@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./Payment.css";
+import API_BASE_URL from "../config"; // Adjust the import path as necessary
 const Payment = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Payment = () => {
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
-        const response = await fetch(`https://seat-secure-backend.onrender.com/event/${id}`);
+        const response = await fetch(`${API_BASE_URL}/event/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch event details");
         }

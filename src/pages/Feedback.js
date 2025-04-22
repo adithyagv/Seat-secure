@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom"; // Add useLocation here
 import axios from "axios";
 import "./Feedback.css";
-
+import API_BASE_URL from "../config"; 
 const Feedback = () => {
   const { id } = useParams();
   const [rating, setRating] = useState(0);
@@ -21,7 +21,7 @@ const Feedback = () => {
 
   const fetchFeedbacks = async () => {
     try {
-      const response = await axios.get(`https://seat-secure-backend.onrender.com/feedback/${id}`);
+      const response = await axios.get(`${API_BASE_URL}/feedback/${id}`);
       setFeedbackList(response.data.feedbacks);
     } catch (error) {
       console.error("Error fetching feedbacks:", error);
@@ -32,7 +32,7 @@ const Feedback = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://seat-secure-backend.onrender.com/feedback", {
+      const response = await axios.post(`${API_BASE_URL}/feedback`, {
         eventId: id,
         rating,
         comment,

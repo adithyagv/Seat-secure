@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import './HomePage.css';
-
+import API_BASE_URL from "../config";
 const HomePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,7 +21,7 @@ const HomePage = () => {
 
   const fetchEvents = async (city) => {
     try {
-      const response = await fetch(`https://seat-secure-backend.onrender.com/events/${city}`);
+      const response = await fetch(`${API_BASE_URL}/events/${city}`);
       if (!response.ok) {
         throw new Error("Failed to fetch events");
       }
@@ -42,11 +42,11 @@ const HomePage = () => {
   };
 
   const handleLogout = () => {
-    navigate("/"); // Redirect to login page
+    navigate("/"); 
   };
 
   const handlePredictClick = () => {
-    navigate("/predict"); // Redirect to Predict.js
+    navigate("/predict"); 
   };
 
   const filteredEvents = events.filter(event =>

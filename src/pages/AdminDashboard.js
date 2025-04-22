@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./AdminDashboard.css"
+import API_BASE_URL from "../config";
 const eventTypes = [ "Sports", "Workshop", "Culturals"];
 const cityOptions = ["Chennai", "Mumbai", "Delhi", "Bangalore", "Hyderabad"];
 
@@ -59,7 +60,7 @@ const AdminDashboard = () => {
         price: Number(trimmedEvent.price), // Ensure price is a number
       };
   
-      const response = await fetch("https://seat-secure-backend.onrender.com/events", {
+      const response = await fetch(`${API_BASE_URL}"/events`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,7 +81,7 @@ const AdminDashboard = () => {
           venue: "",
           description: "",
           price: "",
-          city: "Chennai", // Ensure city has a default
+          city: "", 
           image: "",
         });
       } else {
