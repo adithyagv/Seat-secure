@@ -3,20 +3,23 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './LoginPage.css';
 import API_BASE_URL from "../config";
+
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+    setLoading(true);
+
     try {
       const response = await axios.post(`${API_BASE_URL}/login`, {
         email,
         password,
       });
-  
+
       if (response.status === 200) {
         const { user, events } = response.data;
         navigate("/home", { state: { user, events } });
@@ -26,12 +29,15 @@ const LoginPage = () => {
       alert(
         error.response?.data?.message || "Invalid credentials. Please try again!"
       );
+    } finally {
+      setLoading(false);
     }
   };
+
   const handleForgotPassword = () => {
     navigate("/forgot-password");
   };
-  
+
   const handleUserRegistration = () => {
     navigate("/register");
   };
@@ -42,90 +48,84 @@ const LoginPage = () => {
 
   return (
     <div className="login-body">
-       <header>
-      <nav className="logo">
-        <h1 className="navbar-brand" href="/">
-          SeatPal
-        </h1>
-      </nav>
-    </header>
-    <div className="container">
-     
-    <div className="left-half">
-    <div className="txt-container">
-      <div className="row">
-        <div className="col-md-12">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="card-title">Welcome to SeatPal</h4>
-              <p className="card-text">
-                Searching for events? You're in the right place.
-                Your gateway to unforgettable experiences.
+      <header>
+        <nav className="logo">
+          <h1 className="navbar-brand" href="/">SeatPal</h1>
+        </nav>
+      </header>
+
+      <div className="container">
+        <div className="left-half">
+          <div className="txt-container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="card">
+                  <div className="card-body">
+                    <h4 className="card-title">Welcome to SeatPal</h4>
+                    <p className="card-text">
+                      Searching for events? You're in the right place.
+                      Your gateway to unforgettable experiences.
+                    </p>
+                    <p className="card-text">
+                      Please login to continue.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="login-container">
+          <div style={{ textAlign: "center", marginTop: "50px" }}>
+            <h1>User Login</h1>
+            <form onSubmit={handleLogin} style={{ maxWidth: "300px", margin: "auto" }}>
+              <div className="word" style={{ marginBottom: "20px" }}>
+                <label className="email" style={{ display: "block", marginBottom: "5px" }}>Email</label>
+                <input 
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  style={{ padding: "10px", width: "100%" }}
+                />
+              </div>
+
+              <div className="word1" style={{ marginBottom: "20px", width: "300px" }}>
+                <label style={{ display: "block", marginBottom: "5px" }}>Password</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  style={{ padding: "10px", width: "100%" }}
+                />
+              </div>
+
+              {loading ? (
+                <p>Logging in, please wait...</p>
+              ) : (
+                <button type="submit" className="login-buton">
+                  Login
+                </button>
+              )}
+            </form>
+
+            <div style={{ marginTop: "20px" }}>
+              <p className="link-text" onClick={handleUserRegistration}>
+                Not registered? Sign up here
               </p>
-              <p className="card-text">
-                Please login to continue.
+              <p className="link-text" id="admin" onClick={handleAdminLogin}>
+                Admin Login
               </p>
-              
+              <p className="link-text" onClick={handleForgotPassword}>
+                Forgot Password?
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    
-      <div className="login-container">
-          <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <h1>User Login</h1>
-              <form onSubmit={handleLogin} style={{ maxWidth: "300px", margin: "auto" }}>
-                <div className="word" style={{ marginBottom: "20px" }}>
-                  <label className="email" style={{ display: "block", marginBottom: "5px" }}>Email</label>
-                    <input 
-                       type="email"
-                        value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Enter your email"
-                              style={{ padding: "10px", width: "100%" }}
-                                  />
-                                </div>
-                              <div className="word1" style={{ marginBottom: "20px",width:"300px" }}>
-                                <label style={{ display: "block", marginBottom: "5px" }}>Password</label>
-                                  <input
-                                    type="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="Enter your password"
-                                    style={{ padding: "10px", width: "100%" }}
-                                  />
-                              </div >
-                              <button type="submit" className="login-buton">
-                                Login
-                                </button>
-                                
-                </form>
-
-     
-                <div style={{ marginTop: "20px" }}>
-  <p className="link-text" onClick={handleUserRegistration}>
-    Not registered? Sign up here
-  </p>
-  <p className="link-text" id="admin" onClick={handleAdminLogin}>
-    Admin Login
-  </p>
-  <p
-  className="link-text"
-  onClick={handleForgotPassword}
->
-  Forgot Password?
-</p>
-
-</div>
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-    
   );
 };
 
